@@ -1,38 +1,84 @@
-.App {
-  text-align: center;
+@media (max-width: 1030px) {
+  .home .home-banner,
+  .home .home-banner-2 {
+    background-position: 65% center;
+    min-height: 550px;
+  }
+  .home-banner-text {
+    transform: translate(-80%, -50%);
+  }
+  .home-banner-text h1 {
+    font-size: 5rem;
+  }
+  /* Offers */
+  .heading-bigger {
+    font-size: 3rem;
+  }
 }
+@media (max-width: 991px) {
+  /* Home css */
+  .home-banner-text {
+    transform: translate(-66%, -50%);
+  }
+  /* Special css */
+  .countdown-container {
+    padding-top: 1rem;
+    padding-bottom: 5rem;
+  }
+  /* Testiononial */
+  .testimonial .carousel-control-prev {
+    left: -1.75rem;
+  }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+  .testimonial .carousel-control-next {
+    right: -1.75rem;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 767px) {
+  .home .home-banner,
+  .home .home-banner-2 {
+    background-position: 50% center;
+    min-height: 450px;
   }
-  to {
-    transform: rotate(360deg);
+  .home-banner-text {
+    text-align: center;
+    width: 100%;
+    transform: translate(-50%, -50%);
+  }
+  .home-banner-text h1 {
+    font-size: 3rem;
+  }
+  .home-banner-text h2 {
+    font-size: 1.2rem;
+  }
+  .btn-danger {
+    padding: 0.5rem 1.5rem;
+  }
+  .slider-icon {
+    font-size: 2rem;
+  }
+  .up_to_content h2 {
+    font-size: 0.75rem;
+  }
+  .special {
+    padding: 4rem 0;
+  }
+  .countdown-counter li {
+    padding: 1rem;
+    width: 20%;
+  }
+  /* Testiononial */
+  .testimonial-wrapper {
+    padding: 1rem;
+  }
+  .testimonial .carousel-control-prev,
+  .testimonial .carousel-control-next {
+    display: none;
+  }
+}
+@media (max-width: 330px) {
+  .home-banner-text h2 {
+    font-size: 1rem;
   }
 }
