@@ -1,8 +1,33 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import registerimg from '../../../../assets/images/offer_2.jpg'
+import registerimg from '../../../../assets/images/special_1.jpg'
+import useAuth from '../../../../hooks/useAuth'
 
 const Register = () => {
+
+    const [registerData, setRegisterData] = useState({});
+
+    const { userRegister, isLoading } = useAuth();
+
+
+    const handleOnBlure = (e) => {
+        const field = e.target.name;
+        const value = e.target.value;
+        const newRegisterData = { ...registerData };
+        newRegisterData[field] = value;
+        console.log(newRegisterData);
+        setRegisterData(newRegisterData);
+
+    }
+
+    const handleRegisterSubmit = e => {
+        e.preventDefault();
+        if (registerData.password !== registerData.password2) {
+            alert("Your password didn't match");
+            return;
+        }
+        userRegister(registerData.email, registerData.password);
+    }
     return (
         <section className='mt-5'>
             <div className="container py-5">
@@ -18,22 +43,28 @@ const Register = () => {
                         />
                         </div>
                         <div className="col-md-6 col-lg-7 d-flex align-items-center">
-                        <div className="card-body p-4 p-lg-5 text-black">
-                            <form>
-                            <h5 className="fw-normal mb-3 pb-3" style={{letterSpacing:'1px'}}>Create into your account New Account </h5>
+                        <div className="card-body  p-lg-5 text-black">
 
-                            <div className="form-outline mb-4">
-                                <input type="email"  name="email" className="form-control form-control-lg" placeholder="Your Email" />
+                        { !isLoading && <form onSubmit={handleRegisterSubmit}>
+                              <h5 className="fw-normal mb-2 pb-1">Create into your account New Account </h5>
+                             {/* <div className="form-outline mb-2">
+                                <input type="text"  name="name" className="form-control" placeholder="Your name" />
+                            </div> */}
+                            <div className="form-outline mb-2">
+                                <input type="email" onBlur={handleOnBlure}  name="email" className="form-control" placeholder="Your Email" required />
                             </div>
-                            <div className="form-outline mb-4">
-                                <input type="password"  name="password" className="form-control form-control-lg" placeholder="Your" />
+                            <div className="form-outline mb-2">
+                                <input type="password" onBlur={handleOnBlure} name="password" className="form-control" placeholder="Your Password" required />
+                             </div>
+                             <div className="form-outline mb-2">
+                                <input type="password" onBlur={handleOnBlure}  name="password2" className="form-control " placeholder="Re-Type your password" />
                             </div>
-                            <div className="pt-1 mb-4">
+                            <div className="pt-1 mb-2">
                                 <button className="btn btn-danger text-uppercase" type="submit">Register</button>
                             </div>
                             <p className="mb-5 pb-lg-2">Have already an account ? <NavLink to="/login" className="text-danger">Login here</NavLink></p>
-                        </form>
-
+                        </form>}
+                            { isLoading && <div className="spinner-border text-success" style={{width:'5rem', height:'5rem'}} role="status"></div>}
                         </div>
                         </div>
                     </div>

@@ -10,10 +10,13 @@ import Register from './components/Pages/Login/Register/Register';
 import Footer from './components/Pages/Shaired/Footer/Footer';
 import Navigation from './components/Pages/Shaired/Navigation/Navigation';
 import Products from './components/Products/Products';
+import AuthProvider from './contexts/AuthProvider/AuthProvider';
 
 function App() {
+
   return (
-    <div>
+    <>
+    <AuthProvider>
       <Router>
         <Navigation />
         <Routes>
@@ -29,7 +32,8 @@ function App() {
         </Routes>
         <Footer/>
       </Router>
-    </div>
+      </AuthProvider>
+    </>
   );
 }
 

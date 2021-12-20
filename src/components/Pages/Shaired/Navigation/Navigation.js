@@ -1,6 +1,7 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 import logo from '../../../../assets/images/logo.png'
+import useAuth from '../../../../hooks/useAuth';
 
 // nav hide
 // const navBar = document.querySelectorAll('.nav-link');
@@ -13,6 +14,7 @@ import logo from '../../../../assets/images/logo.png'
 
 
 const Navigation = () => {
+    const {user, logout} = useAuth();
     return (
         <section id="header">
         <nav className="navbar navbar-expand-lg bg-white fixed-top">
@@ -42,7 +44,11 @@ const Navigation = () => {
                             <NavLink className="nav-link" to="contact">Contact</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="login">Login</NavLink>
+                                {
+                                    user?.email ?
+                                    <NavLink onClick={logout} className="nav-link" to="login">Logout</NavLink>
+                                    :<NavLink className="nav-link" to="login">Login</NavLink>
+                                }
                         </li>
                         <li className="nav-item">
                             <NavLink className="nav-link" to="cart"><span className='ti-shopping-cart'></span></NavLink>
