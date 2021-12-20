@@ -5,7 +5,10 @@ import useAuth from '../../../../hooks/useAuth'
 const PrivateRoute = ({ children, ...rest }) => {
     const { user, isLoading } = useAuth();
     let location = useLocation();
-    if (isLoading) { return <div className="spinner-border text-success" style={{ width: '5rem', height: '5rem' }} role="status"></div> }
+    if (isLoading) {
+        return <div className="d-flex justify-content-center">
+        <div className="spinner-border" style={{ width: '10rem', height: '10rem' }} role="status"></div>
+    </div>}
     if (user.email) {
         return children
     }

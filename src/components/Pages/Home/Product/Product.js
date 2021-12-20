@@ -3,6 +3,34 @@ import product_1 from '../../../../assets/images/testing_2.png'
 import product_2 from '../../../../assets/images/testing_1.png'
 import banner_logo from '../../../../assets/images/logo_banner.jpg'
 import { NavLink } from 'react-router-dom'
+import Ladies from '../Ladies/Ladies'
+
+const ladices = [
+    {
+    id: 1,
+    name: 'Navy Printed Ladies Long Kameez',
+    price: '5000',
+    disprice: '400',
+    img: product_1
+    },
+    {
+    id: 2,
+    name: 'Ladies Long Kameez printed',
+    price: '5000',
+    disprice: '400',
+    img: product_2
+    },
+    {
+    id: 3,
+    name: 'Ladies Full Sleeve Long Kameez',
+    price: '5000',
+    disprice: '400',
+    img: product_1
+    }
+
+
+]
+
 
 const Product = () => {
     return (
@@ -16,73 +44,12 @@ const Product = () => {
                 </div>
             </div>
             <div className="row">
-                <div className="col-sm-6 col-lg-4">
-                    <a href="#/" className="d-block text-center mb-4">
-                        <div className="product-list">
-                            <div className="product-image position-relative">
-                                <span className="sale">Sale</span>
-                                <img src={product_1} alt="products" className="img-fluid product-image-first"/>
-                                <img src={product_2} alt="products" className="img-fluid product-image-secondary"/>
-                            </div>
-                            <div className="product-name pt-3">
-                                <h3 className="text-capitalize">Winter Long Sleeve Black White</h3>
-                                <p className="mb-0 amount">$400.00 <del>$580.00</del></p>
-                                <div className="py-1">
-                                    <span className="ti-star"></span>
-                                    <span className="ti-star"></span>
-                                    <span className="ti-star"></span>
-                                    <span className="ti-star"></span>
-                                    <span className="ti-star"></span>
-                                </div>
-                                <button type="button" className="add_to_Card">ADD TO CARD</button>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div className="col-sm-6 col-lg-4">
-                    <a href="#/" className="d-block text-center mb-4">
-                        <div className="product-list">
-                            <div className="product-image position-relative">
-                                <img src={product_2} alt="products" className="img-fluid product-image-first"/>
-                                <img src={product_1} alt="products" className="img-fluid product-image-secondary"/>
-                            </div>
-                            <div className="product-name pt-3">
-                                <h3 className="text-capitalize">women totes lady handbag</h3>
-                                <p className="mb-0 amount">$300.00</p>
-                                <div className="py-1">
-                                    <span className="ti-star active"></span>
-                                    <span className="ti-star active"></span>
-                                    <span className="ti-star active"></span>
-                                    <span className="ti-star"></span>
-                                    <span className="ti-star"></span>
-                                </div>
-                                <button type="button" className="add_to_Card">ADD TO CARD</button>
-                            </div>
-                        </div>
-                    </a>
-                </div>
-                <div className="col-sm-6 col-lg-4">
-                    <a href="#/" className="d-block text-center mb-4">
-                        <div className="product-list">
-                            <div className="product-image position-relative">
-                                <img src={product_2} alt="products" className="img-fluid product-image-first"/>
-                                <img src={product_1} alt="products" className="img-fluid product-image-secondary"/>
-                            </div>
-                            <div className="product-name pt-3">
-                                <h3 className="text-capitalize">Lace water soluble sexy dress</h3>
-                                <p className="mb-0 amount">$600.00</p>
-                                <div className="py-1">
-                                    <span className="ti-star active"></span>
-                                    <span className="ti-star active"></span>
-                                    <span className="ti-star active"></span>
-                                    <span className="ti-star active"></span>
-                                    <span className="ti-star active"></span>
-                                </div>
-                                <button type="button" className="add_to_Card">ADD TO CARD</button>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                {
+                    ladices.map(ladies => <Ladies
+                        key={ladies.id}
+                        ladies={ladies}
+                    />).slice(0,6)
+                }
             </div>
                 <div className="row">
                 <div className="col-sm-12">
