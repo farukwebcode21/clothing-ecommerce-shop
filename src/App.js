@@ -6,6 +6,7 @@ import Home from './components/Pages/Home/Home/Home';
 import Special from './components/Pages/Home/Special/Special';
 import Testimonials from './components/Pages/Home/Testimonials/Testimonials';
 import Login from './components/Pages/Login/Login/Login';
+import PrivateRoute from './components/Pages/Login/PrivateRoute/PrivateRoute';
 import Register from './components/Pages/Login/Register/Register';
 import Footer from './components/Pages/Shaired/Footer/Footer';
 import Navigation from './components/Pages/Shaired/Navigation/Navigation';
@@ -22,7 +23,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/products" element={<Products/>}/>
+          <Route path="/products" element={<PrivateRoute><Products/></PrivateRoute>}/>
           <Route path="/special" element={<Special />} />
           <Route path="/testimonial" element={<Testimonials />} />
           <Route path="/contact" element={<Contact />} />

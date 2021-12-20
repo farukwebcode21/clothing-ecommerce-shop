@@ -4,7 +4,7 @@ import products_2 from '../../assets/images/testing_1.png'
 
 const Products = () => {
     return (
-        <section id="products" className="products">
+        <section id="products" className="products" style={{height:'100%'}}>
         <div className="container">
             <div className="row">
                 <div className="col-sm-12">

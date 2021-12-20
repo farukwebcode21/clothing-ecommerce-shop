@@ -3,7 +3,7 @@ import special_offer from '../../../../assets/images/testing_2.png'
 
 const Special = () => {
     return (
-         <section id="special" className="special">
+         <section id="special" className="special" style={{height:'100%'}}>
             <div className="container">
                 <div className="row">
                     <div className="col-sm-12">

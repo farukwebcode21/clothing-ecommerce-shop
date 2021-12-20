@@ -1,10 +1,15 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation, useNavigate } from 'react-router-dom'
 import loginimg from '../../../../assets/images/offer_1.jpg'
+import useAuth from '../../../../hooks/useAuth';
 
 const Login = () => {
 
     const [loginData, setLoginData] = useState({});
+    const { user, loginUser, isLoading, authError } = useAuth();
+
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleOnBlure = (e) => {
         const field = e.target.name;
@@ -15,7 +20,7 @@ const Login = () => {
 
     }
     const handleLoginSubmit = e => {
-        alert('You click login button')
+        loginUser(loginData.email, loginData.password, location, navigate);
         e.preventDefault();
     }
     return (
@@ -34,8 +39,8 @@ const Login = () => {
                         </div>
                         <div className="col-md-6 col-lg-7 d-flex align-items-center">
                         <div className="card-body p-4 p-lg-5 text-black">
-                        <form onSubmit={handleLoginSubmit}>
-                            <h5 className="fw-normal mb-3 pb-3" style={{letterSpacing:'1px'}}>Sign into your account</h5>
+                        {! isLoading && <form onSubmit={handleLoginSubmit}>
+                            <h5 className="fw-normal mb-1 pb-3" style={{letterSpacing:'1px'}}>Sign into your account</h5>
 
                             <div className="form-outline mb-4">
                                 <input type="email" onBlur={handleOnBlure}  name="email" className="form-control form-control-lg" placeholder="Your Email" required />
@@ -43,11 +48,14 @@ const Login = () => {
                             <div className="form-outline mb-4">
                                 <input type="password" onBlur={handleOnBlure}  name="password" className="form-control form-control-lg" placeholder="Your Password" required />
                             </div>
-                            <div className="pt-1 mb-4">
+                            <div className="pt-1 mb-2">
                                 <button className="btn btn-danger text-uppercase" type="submit">Login</button>
                             </div>
-                            <p className="mb-5 pb-lg-2">Don't have an account? <NavLink to="/register" className="text-danger">Register here</NavLink></p>
-                        </form>
+                            <p className="mb-2 pb-lg-2">Don't have an account? <NavLink to="/register" className="text-danger">Register here</NavLink></p>
+                        </form>}
+                            {isLoading && <div className="spinner-border text-success text-center" style={{ width: '5rem', height: '5rem' }} role="status"></div>}
+                            {user?.email && <div class="alert alert-success" role="alert">User login Success</div>}
+                            {authError && <div class="alert alert-danger" role="alert">please correct email and password</div>}
 
                         </div>
                         </div>

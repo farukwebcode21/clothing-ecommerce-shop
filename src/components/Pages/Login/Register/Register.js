@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink,  useNavigate } from 'react-router-dom'
 import registerimg from '../../../../assets/images/special_1.jpg'
 import useAuth from '../../../../hooks/useAuth'
 
 const Register = () => {
 
     const [registerData, setRegisterData] = useState({});
+    const { user, authError, userRegister, isLoading } = useAuth();
+;
+    const navigate = useNavigate();
 
-    const { userRegister, isLoading } = useAuth();
 
 
     const handleOnBlure = (e) => {
@@ -26,7 +28,7 @@ const Register = () => {
             alert("Your password didn't match");
             return;
         }
-        userRegister(registerData.email, registerData.password);
+        userRegister(registerData.email, registerData.password, navigate);
     }
     return (
         <section className='mt-5'>
@@ -62,9 +64,11 @@ const Register = () => {
                             <div className="pt-1 mb-2">
                                 <button className="btn btn-danger text-uppercase" type="submit">Register</button>
                             </div>
-                            <p className="mb-5 pb-lg-2">Have already an account ? <NavLink to="/login" className="text-danger">Login here</NavLink></p>
+                            <p className="mb-22 pb-lg-2">Have already an account ? <NavLink to="/login" className="text-danger">Login here</NavLink></p>
                         </form>}
-                            { isLoading && <div className="spinner-border text-success" style={{width:'5rem', height:'5rem'}} role="status"></div>}
+                            {isLoading && <div className="spinner-border text-success" style={{ width: '5rem', height: '5rem' }} role="status"></div>}
+                            {user?.email && <div class="alert alert-success" role="alert">User account Create Success</div>}
+                            {authError && <div class="alert alert-danger" role="alert">please correct email and password</div>}
                         </div>
                         </div>
                     </div>
