@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import initializeFirebase from '../components/Pages/Login/Firebase/firebase.init'
-import { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword,updateProfile, createUserWithEmailAndPassword, signOut, onAuthStateChanged } from "firebase/auth";
 
 initializeFirebase();
 const useFirebase = () => {
@@ -12,12 +12,25 @@ const useFirebase = () => {
 
     // ======================>> Use Registation <<=======================
 
-    const userRegister = (email, password, navigate) => {
+    const userRegister = (email, password, name, navigate) => {
         setIsLoading(true);
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in
                 setAuthError('');
+                const newUser = { email, displayName: name };
+                setUser(newUser);
+                // send name to firebase after creation
+                updateProfile(auth.currentUser, {
+                    displayName: name
+                    }).then(() => {
+                    // Profile updated!
+                    // ...
+                    }).catch((error) => {
+                    // An error occurred
+                    // ...
+                    });
+
                 navigate('/')
             })
             .catch((error) => {

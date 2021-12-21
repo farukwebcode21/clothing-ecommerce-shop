@@ -1,9 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom';
 
-const Ladies = ({ ladies }) => {
-    console.log(ladies);
-    const {img, name, price, disprice } = ladies;
+const Ladies = ({ product }) => {
+    const {id, img, name, price, disprice, size } = product;
     return (
         <div className="col-sm-6 col-lg-4">
             <div className="d-block text-center mb-4">
@@ -13,7 +12,8 @@ const Ladies = ({ ladies }) => {
                         <img src={img} alt="products" className="img-fluid product-image-first"/>
                     </div>
                     <div className="product-name pt-3">
-                            <h3 className="text-capitalize">{ name}</h3>
+                        <h3 className="text-capitalize">{name}</h3>
+                        <p className="mb-0 amount">{size }</p>
                             <p className="mb-0 amount">${price}.00 <del>${disprice }.00</del></p>
                         <div className="py-1">
                             <span className="ti-star"></span>
@@ -22,7 +22,7 @@ const Ladies = ({ ladies }) => {
                             <span className="ti-star"></span>
                             <span className="ti-star"></span>
                         </div>
-                        <NavLink to="/cart"><button type="button" className="add_to_Card">ADD TO CARD</button></NavLink>
+                        <NavLink to={`/cart/${id}`}><button type="button" className="add_to_Card">ADD TO CARD</button></NavLink>
                     </div>
                 </div>
             </div>

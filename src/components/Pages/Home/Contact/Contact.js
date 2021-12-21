@@ -16,15 +16,15 @@ const Contact = () => {
                             <ul className="info list-unstyled">
                                 <li className="d-flex align-items-center">
                                     <span className="pe-3 ti-location-pin fs-5"></span>
-                                    <p><a href="#/">Lorem ipsum dolor sit amet, consectetur.</a></p>
+                                    <p><a href="#/">If You want To contact me please mail or call</a></p>
                                 </li>
                                 <li className="d-flex align-items-center">
                                     <span className="pe-3 ti-mobile fs-5"></span>
-                                    <p><a href="#/">+91 999-999-9999</a></p>
+                                    <p><a href="#/">+880 999-999-999</a></p>
                                 </li>
                                 <li className="d-flex align-items-center">
                                     <span className="pe-3 ti-envelope fs-5"></span>
-                                    <p><a href="#/">Info@eshop.in</a></p>
+                                    <p><a href="#/">eshop@shop.com</a></p>
                                 </li>
                             </ul>
                         </div>

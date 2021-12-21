@@ -28,7 +28,7 @@ const Register = () => {
             alert("Your password didn't match");
             return;
         }
-        userRegister(registerData.email, registerData.password, navigate);
+        userRegister(registerData.email, registerData.password, registerData.name, navigate);
     }
     return (
         <section className='mt-5'>
@@ -49,9 +49,9 @@ const Register = () => {
 
                         { !isLoading && <form onSubmit={handleRegisterSubmit}>
                               <h5 className="fw-normal mb-2 pb-1">Create into your account New Account </h5>
-                             {/* <div className="form-outline mb-2">
-                                <input type="text"  name="name" className="form-control" placeholder="Your name" />
-                            </div> */}
+                             <div className="form-outline mb-2">
+                                <input type="text"  name="name" onBlur={handleOnBlure} className="form-control" placeholder="Your name" />
+                            </div>
                             <div className="form-outline mb-2">
                                 <input type="email" onBlur={handleOnBlure}  name="email" className="form-control" placeholder="Your Email" required />
                             </div>

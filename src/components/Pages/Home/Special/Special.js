@@ -1,5 +1,6 @@
 import React from 'react'
-import special_offer from '../../../../assets/images/testing_2.png'
+import { NavLink } from 'react-router-dom'
+import special_offer from '../../../../assets/images/testing_2.jpg'
 
 const Special = () => {
     return (
@@ -18,14 +19,8 @@ const Special = () => {
                             <p className="my-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
                                 incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
                                 exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-                            <ul className="list-unstyled countdown-counter">
-                                <li><span className="fs-1 d-block" id="days">00</span> Days</li>
-                                <li><span className="fs-1 d-block" id="hours">00</span> Hr</li>
-                                <li><span className="fs-1 d-block" id="min">00</span> Min</li>
-                                <li><span className="fs-1 d-block" id="sec">00</span> Sec</li>
-                            </ul>
                             <span className="countdown-price h3 d-block mb-4">$420.00 <del>$670.00</del></span>
-                            <button type="button" className="btn btn-danger">ADD TO CART</button>
+                            <NavLink to="/products"><button type="button" className="btn btn-danger">PRODUCT LIST</button></NavLink>
                         </div>
                     </div>
                     <div className="col-sm-12 col-lg-5">

@@ -1,38 +1,15 @@
-import React from 'react'
-import product_1 from '../../../../assets/images/testing_2.png'
-import product_2 from '../../../../assets/images/testing_1.png'
+import React, { useEffect, useState } from 'react'
 import banner_logo from '../../../../assets/images/logo_banner.jpg'
 import { NavLink } from 'react-router-dom'
 import Ladies from '../Ladies/Ladies'
 
-const ladices = [
-    {
-    id: 1,
-    name: 'Navy Printed Ladies Long Kameez',
-    price: '5000',
-    disprice: '400',
-    img: product_1
-    },
-    {
-    id: 2,
-    name: 'Ladies Long Kameez printed',
-    price: '5000',
-    disprice: '400',
-    img: product_2
-    },
-    {
-    id: 3,
-    name: 'Ladies Full Sleeve Long Kameez',
-    price: '5000',
-    disprice: '400',
-    img: product_1
-    }
-
-
-]
-
-
 const Product = () => {
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/products')
+            .then(res => res.json())
+            .then(data => setProducts(data));
+    },[])
     return (
         <section id="products" className="products">
         <div className="container">
@@ -45,9 +22,9 @@ const Product = () => {
             </div>
             <div className="row">
                 {
-                    ladices.map(ladies => <Ladies
-                        key={ladies.id}
-                        ladies={ladies}
+                    products.map(product => <Ladies
+                        key={product._id}
+                        product={product}
                     />).slice(0,6)
                 }
             </div>

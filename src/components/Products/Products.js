@@ -1,74 +1,15 @@
-import React from 'react'
-import products_1 from '../../assets/images/testing_2.png'
-import products_2 from '../../assets/images/testing_1.png'
+import React, { useEffect, useState } from 'react'
 import Ladies from '../Pages/Home/Ladies/Ladies'
-
-const ladices = [
-    {
-    id: 1,
-    name: 'Navy Printed Ladies Long Kameez',
-    price: '5000',
-    disprice: '400',
-    img: products_1
-    },
-
-    {
-    id: 2,
-    name: 'Ladies Long Kameez printed',
-    price: '5000',
-    disprice: '400',
-    img: products_2
-    },
-
-    {
-    id: 3,
-    name: 'Ladies Full Sleeve Long Kameez',
-    price: '5000',
-    disprice: '400',
-    img: products_1
-    },
-    {
-    id: 4,
-    name: 'Ladies Full Sleeve Long Kameez',
-    price: '5000',
-    disprice: '400',
-    img: products_1
-    },
-    {
-    id: 5,
-    name: 'Ladies Full Sleeve Long Kameez',
-    price: '5000',
-    disprice: '400',
-    img: products_1
-    },
-    {
-    id: 6,
-    name: 'Ladies Full Sleeve Long Kameez',
-    price: '5000',
-    disprice: '400',
-    img: products_1
-    },
-    {
-    id: 7,
-    name: 'Ladies Full Sleeve Long Kameez',
-    price: '5000',
-    disprice: '400',
-    img: products_1
-    },
-    {
-    id: 8,
-    name: 'Ladies Full Sleeve Long Kameez',
-    price: '5000',
-    disprice: '400',
-    img: products_1
-    }
-
-
-
-]
 
 
 const Products = () => {
+    const [products, setProducts] = useState([]);
+    useEffect(() => {
+        fetch('http://localhost:5000/products')
+            .then(res => res.json())
+            .then(data => setProducts(data));
+    },[])
+
     return (
         <section id="products" className="products" style={{height:'100%'}}>
         <div className="container">
@@ -81,9 +22,9 @@ const Products = () => {
             </div>
             <div className="row">
                 {
-                    ladices.map(ladies => <Ladies
-                        key={ladies.id}
-                        ladies={ladies}
+                    products.map(product => <Ladies
+                        key={product._id}
+                        product={product}
                     />)
                 }
             </div>

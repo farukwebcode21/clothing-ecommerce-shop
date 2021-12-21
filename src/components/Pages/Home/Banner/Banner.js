@@ -56,7 +56,7 @@ const Banner = () => {
                 <div className="row">
 
                     <div className="col-sm-6 col-lg-4 mb-lg-0 mb-4">
-                        <a href="#/">
+                        <NavLink to="/products">
                             <div className="offer-box text-center position-relative">
                                 <div className="offer-inner">
                                     <div className="offer-image position-relative overflow-hidden">
@@ -74,11 +74,11 @@ const Banner = () => {
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </NavLink>
                     </div>
 
                     <div className="col-sm-6 col-lg-4 mb-lg-0 mb-4 d-flex flex-column justify-content-between">
-                        <a href="#/">
+                        <NavLink to="/products">
                             <div className="offer-box text-center position-relative mb-4 mb-sm-0 mb-lg-0">
                                 <div className="offer-inner">
                                     <div className="offer-image position-relative overflow-hidden">
@@ -90,14 +90,13 @@ const Banner = () => {
                                             <p className="heading-bigger text-capitalize">Sale 70%</p>
                                             <p className="offer-title-1 text-uppercase font-weight-bold">Don't Miss This
                                                 Chance</p>
-                                            <button type="button"
-                                                className="btn btn-outline-danger text-uppercase mt-4">Shop Now</button>
+                                            <button type="button" className="btn btn-outline-danger text-uppercase mt-4">Shop Now</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </a>
-                        <a href="#/">
+                        </NavLink>
+                        <NavLink to="/products">
                             <div className="offer-box text-center position-relative">
                                 <div className="offer-inner">
                                     <div className="offer-image position-relative overflow-hidden">
@@ -115,12 +114,12 @@ const Banner = () => {
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </NavLink>
                     </div>
 
 
                     <div className="col-sm-6 col-lg-4 mb-lg-0 mb-4">
-                        <a href="#/">
+                        <NavLink to="/products">
                             <div className="offer-box text-center position-relative">
                                 <div className="offer-inner">
                                     <div className="offer-image position-relative overflow-hidden">
@@ -138,7 +137,7 @@ const Banner = () => {
                                     </div>
                                 </div>
                             </div>
-                        </a>
+                        </NavLink>
                     </div>
                 </div>
             </div>

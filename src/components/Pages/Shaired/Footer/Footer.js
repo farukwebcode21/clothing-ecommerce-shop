@@ -21,10 +21,10 @@ const Footer = () => {
                 <div className="p-3 copyright">
                     <div className="container">
                         <div className="row align-items-center">
-                            <div className="col-12 col-lg-6 p-1 p-lg-3 text-center text-lg-start">
+                            <div className="col-sm-12 col-md-6 col-lg-6 p-1 p-lg-3 text-center text-lg-start">
                                 <p className="my-0">Copyright © 2022 <a href="#/">E-SHOP</a> All Rights Reserved</p>
                             </div>
-                            <div className="col-12 col-lg-6 p-1 p-lg-3 text-center text-lg-end">
+                            <div className="col-sm-12 col-md-6 col-lg-6 p-1 p-lg-3 text-center text-lg-end">
                                 <p>Designed by <a href="#/" target=" _blank">FARUK AHMAD</a>.</p>
                             </div>
                         </div>

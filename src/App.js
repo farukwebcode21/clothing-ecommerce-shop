@@ -29,9 +29,9 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/cart" element={<Cart/>}/>
+          <Route path="/cart/:cardId" element={<PrivateRoute><Cart/></PrivateRoute>}/>
         </Routes>
-        <Footer/>
+        {/* <Footer/> */}
       </Router>
       </AuthProvider>
     </>
