@@ -2,7 +2,7 @@ import React from 'react'
 import { NavLink } from 'react-router-dom';
 
 const Ladies = ({ product }) => {
-    const {id, img, name, price, disprice, size } = product;
+    const {_id, img, name, price, disprice, size } = product;
     return (
         <div className="col-sm-6 col-lg-4">
             <div className="d-block text-center mb-4">
@@ -22,7 +22,7 @@ const Ladies = ({ product }) => {
                             <span className="ti-star"></span>
                             <span className="ti-star"></span>
                         </div>
-                        <NavLink to={`/cart/${id}`}><button type="button" className="add_to_Card">ADD TO CARD</button></NavLink>
+                        <NavLink to={`/cart/${_id}`}><button type="button" className="add_to_Card">ADD TO CARD</button></NavLink>
                     </div>
                 </div>
             </div>

@@ -455,6 +455,6 @@ p {
   height: auto;
 }
 .delete,
-.approve {
+.confirm {
   cursor: pointer;
 }

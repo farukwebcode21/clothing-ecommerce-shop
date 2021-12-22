@@ -44,7 +44,7 @@ const Navigation = () => {
                             <NavLink className="nav-link" to="contact">Contact</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink className="nav-link" to="addproduct">Add Product</NavLink>
+                            <NavLink className="nav-link" to="myorder">My Order</NavLink>
                         </li>
                         <li className="nav-item">
                                 {
