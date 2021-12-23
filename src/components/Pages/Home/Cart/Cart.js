@@ -14,7 +14,7 @@ const Cart = () => {
     const [cart, setCart] = useState([]);
 
     useEffect(()=>{
-        fetch(`http://localhost:5000/products/${cardId}`)
+        fetch(`https://polar-chamber-95190.herokuapp.com/products/${cardId}`)
             .then(res => res.json())
             .then(data => setCart(data));
     }, [cardId])
@@ -23,7 +23,7 @@ const Cart = () => {
     const onSubmit = data => {
         data.productName = cart.name;
         data.productPrice = cart.price;
-        fetch('http://localhost:5000/orders', {
+        fetch('https://polar-chamber-95190.herokuapp.com/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

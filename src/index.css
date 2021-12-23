@@ -454,6 +454,7 @@ p {
   padding: 5rem 0;
   height: auto;
 }
+
 .delete,
 .confirm {
   cursor: pointer;
